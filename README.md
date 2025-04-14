@@ -1,5 +1,5 @@
 # Turtle DragonFlight
-🎮 Una versión modificada del addon [Turtle-Dragonflight](https://github.com/TheLinuxITGuy/Turtle-Dragonflight) para Turtle WoW.
+🎮 Una versión modificada del addon [Turtle-Dragonflight](https://github.com/TheLinuxITGuy/Turtle-Dragonflight) para el servidor de Turtle WoW SA.
 
 ## 🐉 ¿Que cambia?
 - Corrige el error asociado al activar la opción "All-in-one-bag" del addon original, permitiendo ver todas las bolsas en una sola.
