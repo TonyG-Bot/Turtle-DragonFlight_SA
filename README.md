@@ -6,5 +6,5 @@
 - Ajusta la transparencia de los tooltips en modo "Darnkened UI" para una mejor visualización del texto.
 
 ## 📥 Instalación
-1. Abre el launcher "TurtleWoW", y en el apartado de Addons selecciona "Añadir nuevo addon" y pegas el link de este repositorio.
-2. También es posible la instalación manual descargando en formato .zip
+- Abre el launcher "TurtleWoW", y en el apartado de Addons selecciona "Añadir nuevo addon" y pegas el link de este repositorio.
+- También es posible la instalación manual descargando en formato .zip
