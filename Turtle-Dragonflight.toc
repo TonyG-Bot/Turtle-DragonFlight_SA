@@ -1,5 +1,5 @@
 ## Interface: 11200
-## Title: |cff008000Turtle |cff1974d2Dragonflight SA
+## Title: |cff008000Turtle |cff1974d2Dragonflight|r SA
 ## Author: HeadyZmoK
 ## Notes: La versión modificada de Dragonflight UI para Turtle WoW.
 ## Version: GIT
