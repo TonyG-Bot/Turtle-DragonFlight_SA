@@ -192,9 +192,9 @@ module.enable = function(self)
   TOOLTIP_DEFAULT_COLOR.g = self.color.g
   TOOLTIP_DEFAULT_COLOR.b = self.color.b
 
-  TOOLTIP_DEFAULT_BACKGROUND_COLOR.r = self.color.r
-  TOOLTIP_DEFAULT_BACKGROUND_COLOR.g = self.color.g
-  TOOLTIP_DEFAULT_BACKGROUND_COLOR.b = self.color.b
+  TOOLTIP_DEFAULT_BACKGROUND_COLOR.r = 0
+  TOOLTIP_DEFAULT_BACKGROUND_COLOR.g = 0
+  TOOLTIP_DEFAULT_BACKGROUND_COLOR.b = 0
 
   DarkenFrame(UIParent)
   DarkenFrame(WorldMapFrame)
