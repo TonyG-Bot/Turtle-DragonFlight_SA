@@ -35,6 +35,7 @@ tDFUI_locale["enUS"]["hunterpaging"] = {
 tDFUI_locale["enUS"]["customcast"] = {
   ["AIMEDSHOT"] = "Aimed Shot",
   ["MULTISHOT"] = "Multi-Shot",
+  ["STEADYSHOT"] = "Steady Shot",
 }
 
 tDFUI_locale["enUS"]["critters"] = {

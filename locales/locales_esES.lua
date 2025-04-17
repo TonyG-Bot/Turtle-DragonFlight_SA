@@ -33,8 +33,9 @@ tDFUI_locale["esES"]["hunterpaging"] = {
 }
 
 tDFUI_locale["esES"]["customcast"] = {
-  ["AIMEDSHOT"] = "Disparo de puntería",
-  ["MULTISHOT"] = "Multidisparo",
+  ["AIMEDSHOT"] = "Disparo Apuntado",
+  ["MULTISHOT"] = "Disparo Múltiple",
+  ["STEADYSHOT"] = "Disparo Estable",
 }
 
 tDFUI_locale["esES"]["critters"] = {
@@ -538,6 +539,7 @@ tDFUI_locale["esES"]["spells"] = {
   ['Disparar cohete']={t=3000,icon='INV_Ammo_Bullet_03'},
   ['Disparar misil']={t=3000,icon='INV_Ammo_Bullet_03'},
   ['Disparo de puntería']={t=3000,icon='INV_Spear_07'},
+  ['Disparo firme']={t=1000,icon='Ability_hunter_steadyshot'},
   ['Disparo de veneno']={t=2000,icon='Ability_Poisons'},
   ['Disparo enfermo']={t=2000,icon='Spell_Shadow_CallofBone'},
   ['Disparo explosivo']={t=1000,icon='Spell_Fire_Fireball02'},
@@ -1458,6 +1460,9 @@ tDFUI_locale["esES"]["spells"] = {
   ['Ácido de Hakkar']={t=1000,icon='Spell_Nature_Acid_01'},
   ['Árbol Tammra']={t=1300,icon='Temp'},
   ['Éxtasis melódico']={t=1000,icon='Temp'},
+  -- Turtle SA
+  ['Disparo Apuntado']={t=3000,icon='INV_Spear_07'},
+  ['Disparo Estable']={t=1000,icon='Ability_hunter_steadyshot'},
 }
 
 tDFUI_locale["esES"]["debuffs"] = {
