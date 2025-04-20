@@ -1483,7 +1483,9 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Aguijonero de veneno']={[0]=10.0,},
   ['Aguijón de dracoleón']={[0]=12.0,},
   ['Aguijón de escorpido']={[0]=20.0,},
+  ['Aguijón de Escórpido']={[0]=20.0,},--SA
   ['Aguijón de serpiente']={[0]=15.0,},
+  ['Aguijón de Víbora']={[0]=8.0,},--SA
   ['Aguijón escórpido mejorado']={[0]=20.0,},
   ['Aguijón fatal']={[0]=12.0,},
   ['Aguijón puoso']={[0]=300.0,},
@@ -1518,6 +1520,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Aspecto de Jeklik']={[0]=5.0,},
   ['Aspecto de Mar\'li']={[0]=6.0,},
   ['Aspecto de Venoxis']={[0]=10.0,},
+  ['Asustar Bestia']={[1]=10.0,[2]=15.0,[0]=15.0,},--SA
   ['Ataque Estigma de Escarcha']={[0]=8.0,},
   ['Ataque en oleada']={[0]=2.5,},
   ['Aterrorizar']={[0]=4.0,},
@@ -1635,7 +1638,9 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Corrupción de alma']={[0]=15.0,},
   ['Corrupción de la Tierra']={[0]=10.0,},
   ['Cortar alas']={[0]=10.0,},
+  ['Corte de Alas']={[0]=10.0,},--SA
   ['Cortar alas mejorado']={[0]=5.0,},
+  ['Corte al Ala Mejorado']={[0]=5.0,},--SA
   ['Corteza química']={[0]=10.0,},
   ['Crear aura de Zul']={[0]=30.0,},
   ['Crear círculo de invocación del Corazón de Hakkar']={[0]=30.0,},
@@ -1698,12 +1703,16 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Disolver armadura']={[0]=20.0,},
   ['Disparo de Escarcha']={[0]=10.0,},
   ['Disparo de conmoción']={[0]=4.0,},
+  ['Disparo Conmocionante']={[0]=4.0,},--SA
   ['Disparo de conmoción mejorado']={[0]=3.0,},
+  ['Disparo Conmocionante Mejorado']={[0]=3.0,},--SA
   ['Disparo de veneno']={[0]=75.0,},
   ['Disparo desmontador']={[0]=2.0,},
   ['Disparo disperso']={[0]=4.0,},
+  ['Disparo Disperso']={[0]=4.0,},--SA
   ['Disparo enfermo']={[0]=300.0,},
   ['Disparo penetrante']={[0]=15.0,},
+  ['Disparos Perforantes']={[0]=8.0,},--SA
   ['Disyunción']={[0]=300.0,},
   ['Dolencia Magenta']={[0]=1200.0,},
   ['Dolencia debilitadora']={[0]=30.0,},
@@ -1736,6 +1745,8 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Drenar vida']={[0]=5.0,},
   ['Efecto aturdidor de mazas']={[0]=3.0,},
   ['Efecto de Trampa explosiva']={[0]=20.0,},
+  ['Efecto de Trampa Explosiva']={[0]=20.0,},--SA
+  ['Efecto de Trampa de Escarcha']={[0]=30.0,},--SA
   ['Efecto de aparición de muñeco-diana avanzado']={[0]=10.0,},
   ['Efecto de aparición muñeco-diana']={[0]=5.0,},
   ['Efecto de carga feral']={[0]=4.0,},
@@ -1746,7 +1757,9 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Efecto de sangre mácula']={[0]=10.0,},
   ['Efecto de sufrimiento de Taelan']={[0]=2.0,},
   ['Efecto de trampa congelante']={[1]=10.0,[2]=15.0,[3]=20.0,[0]=20.0,},
+  ['Efecto de Trampa Congelante']={[1]=10.0,[2]=15.0,[3]=20.0,[0]=20.0,},--SA
   ['Efecto de trampa de inmolación']={[0]=15.0,},
+  ['Efecto de Trampa de Inmolación']={[0]=15.0,},
   ['Efecto de veneno menor de escorpión']={[0]=60.0,},
   ['Efecto de éxtasis']={[0]=15.0,},
   ['Efecto molesto']={[0]=3.0,},
@@ -2045,6 +2058,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Marca de las llamas']={[0]=120.0,},
   ['Marca de lo Salvaje']={[0]=1800.0,},
   ['Marca del cazador']={[0]=120.0,},
+  ['Marca de Cazador']={[0]=120.0,},--SA
   ['Marchitar']={[0]=21.0,},
   ['Martillo de justicia']={[1]=3.0,[2]=4.0,[3]=5.0,[4]=6.0,[0]=6.0,},
   ['Martillo del Cruzado']={[0]=4.0,},
@@ -2133,6 +2147,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Peste vagante']={[0]=300.0,},
   ['Petrificar']={[0]=8.0,},
   ['Pez ralentizante']={[0]=25.0,},
+  ['Picadura de Serpiente']={[0]=15.0,},--SA
   ['Picadura de víbora']={[0]=8.0,},
   ['Picar']={[0]=8.0,},
   ['Picar ojos']={[0]=12.0,},
