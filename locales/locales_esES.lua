@@ -33,9 +33,11 @@ tDFUI_locale["esES"]["hunterpaging"] = {
 }
 
 tDFUI_locale["esES"]["customcast"] = {
-  ["AIMEDSHOT"] = "Disparo Apuntado",
-  ["MULTISHOT"] = "Disparo Múltiple",
-  ["STEADYSHOT"] = "Disparo Estable",
+  ["AIMEDSHOT"] = "Disparo Apuntado",--SA
+  ["MULTISHOT"] = "Disparo Múltiple",--SA
+  ["STEADYSHOT"] = "Disparo Estable",--SA
+  --["AIMEDSHOT"] = "Disparo de puntería",
+  --["MULTISHOT"] = "Multidisparo",
 }
 
 tDFUI_locale["esES"]["critters"] = {
@@ -1757,7 +1759,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Efecto de sangre mácula']={[0]=10.0,},
   ['Efecto de sufrimiento de Taelan']={[0]=2.0,},
   ['Efecto de trampa congelante']={[1]=10.0,[2]=15.0,[3]=20.0,[0]=20.0,},
-  ['Efecto de Trampa Congelante']={[1]=10.0,[2]=15.0,[3]=20.0,[0]=20.0,},--SA
+  ['Efecto Trampa Congelante']={[1]=10.0,[2]=15.0,[3]=20.0,[0]=20.0,},--SA
   ['Efecto de trampa de inmolación']={[0]=15.0,},
   ['Efecto de Trampa de Inmolación']={[0]=15.0,},--SA
   ['Efecto de veneno menor de escorpión']={[0]=60.0,},
