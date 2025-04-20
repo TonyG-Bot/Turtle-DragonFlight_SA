@@ -7,6 +7,7 @@
 - Corrige el Auto Dismount para Tortuga Montada en TurtleWoW SA "Lento y constante...".
 - Corrige el cateo de Aimed Shot y Multi-Shot en TurtleWoW SA con el cliente en esES.
 - Agrega barra de casteo de Steady Shot en clientes esES y enUS.
+- Corrige parcialmente el contador de tiempo restante de los Debuffs del Cazador en el Target en TurtleWoW SA.
 
 ## 📥 Instalación
 - Abre el launcher "TurtleWoW", y en el apartado de Addons selecciona "Añadir nuevo addon" y pegas el link de este repositorio.
