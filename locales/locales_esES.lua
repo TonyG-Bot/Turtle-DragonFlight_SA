@@ -1759,7 +1759,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Efecto de trampa congelante']={[1]=10.0,[2]=15.0,[3]=20.0,[0]=20.0,},
   ['Efecto de Trampa Congelante']={[1]=10.0,[2]=15.0,[3]=20.0,[0]=20.0,},--SA
   ['Efecto de trampa de inmolación']={[0]=15.0,},
-  ['Efecto de Trampa de Inmolación']={[0]=15.0,},
+  ['Efecto de Trampa de Inmolación']={[0]=15.0,},--SA
   ['Efecto de veneno menor de escorpión']={[0]=60.0,},
   ['Efecto de éxtasis']={[0]=15.0,},
   ['Efecto molesto']={[0]=3.0,},
