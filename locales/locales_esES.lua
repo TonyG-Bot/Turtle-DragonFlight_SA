@@ -1915,7 +1915,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Hemorragia']={[0]=15.0,},
   ['Hender armadura']={[0]=30.0,},
   ['Herida Profunda']={[0]=12.0,},--SA
-  ['Romper armadura']={[0]=30.0,},--SA
+  ['Romper Armadura']={[0]=30.0,},--SA
   ['Hendida Sagrada']={[0]=60.0,},
   ['Herida']={[0]=25.0,},
   ['Herida infectada']={[0]=300.0,},
