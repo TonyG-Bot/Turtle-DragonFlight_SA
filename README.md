@@ -7,7 +7,7 @@
 - Corrige el "Auto Dismount" para Tortuga Montada "Lento y constante...".
 - Corrige el casteo de "Aimed Shot" y "Multi-Shot" para la versión en español.
 - Agrega una barra de casteo para "Steady Shot" para la versión en español e inglés.
-- Corrige parcialmente el contador de tiempo restante de los Debuffs del Cazador en el Target.
+- Corrige parcialmente el contador de tiempo restante de los Debuffs del Cazador, Guerrero en el Target.
 
 ## 📥 Instalación
 - Abre el launcher "TurtleWoW", y en el apartado de Addons selecciona "Añadir nuevo addon" y pegas el link de este repositorio.
