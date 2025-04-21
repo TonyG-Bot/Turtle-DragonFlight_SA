@@ -35,6 +35,7 @@ tDFUI_locale["enUS"]["hunterpaging"] = {
 tDFUI_locale["enUS"]["customcast"] = {
   ["AIMEDSHOT"] = "Aimed Shot",
   ["MULTISHOT"] = "Multi-Shot",
+  ["STEADYSHOT"] = "Steady Shot",
 }
 
 tDFUI_locale["enUS"]["critters"] = {
@@ -1115,6 +1116,7 @@ tDFUI_locale["enUS"]["spells"] = {
   ['Spotted Panther']={t=3000,icon='Ability_Mount_BlackPanther'},
   ['Sprinkling Purified Water']={t=6000,icon='Temp'},
   ['Starfire']={t=3500,icon='Spell_Arcane_StarFire'},
+  ['Steady Shot']={t=1000,icon='Ability_hunter_steadyshot'},
   ['Steel Mechanostrider']={t=3000,icon='Ability_Mount_MechaStrider'},
   ['Stone Dwarf Awaken Visual']={t=1500,icon='Spell_Nature_Earthquake'},
   ['Stoned - Channel Cast Visual']={t=3000,icon='Spell_Nature_Cyclone'},
