@@ -1888,6 +1888,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Golpe fantasmal']={[0]=7.0,},
   ['Golpe marchito']={[0]=8.0,},
   ['Golpe mortal']={[0]=10.0,},
+  ['Golpe Mortal']={[0]=10.0,},--SA
   ['Gorra de control mental gnómica']={[0]=20.0,},
   ['Gorro de control mental gnómico']={[0]=20.0,},
   ['Granizo']={[0]=3.0,},
@@ -1896,6 +1897,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Grito de guerra']={[0]=900.0,},
   ['Grito desafiante']={[0]=6.0,},
   ['Grito desmoralizador']={[0]=30.0,},
+  ['Grito Desmoralizador']={[0]=30.0,},--SA
   ['Grito incapacitador']={[0]=60.0,},
   ['Grito intimidador']={[0]=8.0,},
   ['Guarda de red']={[0]=20.0,},
@@ -1912,6 +1914,8 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Hedor pútrido']={[0]=10.0,},
   ['Hemorragia']={[0]=15.0,},
   ['Hender armadura']={[0]=30.0,},
+  ['Herida Profunda']={[0]=12.0,},--SA
+  ['Romper armadura']={[0]=30.0,},--SA
   ['Hendida Sagrada']={[0]=60.0,},
   ['Herida']={[0]=25.0,},
   ['Herida infectada']={[0]=300.0,},
@@ -2267,7 +2271,9 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Sangre maldita']={[0]=600.0,},
   ['Sauce envolvente']={[0]=30.0,},
   ['Seccionar']={[0]=15.0,},
+  ['Corte de Tendón']={[0]=15.0,},--SA
   ['Seccionar mejorado']={[0]=5.0,},
+  ['Corte de Tendón Mejorado']={[0]=5.0,},--SA
   ['Secuelas']={[0]=5.0,},
   ['Seducción']={[0]=15.0,},
   ['Segavientos']={[0]=20.0,},
@@ -2342,6 +2348,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Triturar']={[0]=12.0,},
   ['Tropiezo']={[0]=3.0,},
   ['Trueno']={[1]=10.0,[2]=14.0,[3]=18.0,[4]=22.0,[5]=26.0,[6]=30.0,[0]=30.0,},
+  ['Aplastar Trueno']={[1]=10.0,[2]=14.0,[3]=18.0,[4]=22.0,[5]=26.0,[6]=30.0,[0]=30.0,},--SA
   ['Tumba de hielo']={[0]=10.0,},
   ['Técnica de cinco dedos gordos de explosión cardíaca']={[0]=30.0,},
   ['Tósigo de piel venenosa']={[0]=30.0,},
