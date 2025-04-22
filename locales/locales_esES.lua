@@ -36,9 +36,9 @@ tDFUI_locale["esES"]["customcast"] = {
   ["AIMEDSHOT"] = "Disparo Apuntado",--SA
   ["MULTISHOT"] = "Disparo Múltiple",--SA
   ["STEADYSHOT"] = "Disparo Estable",--SA
-  ["AIMEDSHOT"] = "Disparo de puntería",
-  ["MULTISHOT"] = "Multidisparo",
-  ["STEADYSHOT"] = "Disparo firme",
+  --["AIMEDSHOT"] = "Disparo de puntería",
+  --["MULTISHOT"] = "Multidisparo",
+  --["STEADYSHOT"] = "Disparo firme",
 }
 
 tDFUI_locale["esES"]["critters"] = {
@@ -130,12 +130,12 @@ tDFUI_locale["esES"]["critters"] = {
 
 tDFUI_locale["esES"]["dyndebuffs"] = {
   ["Rupture"] = "Ruptura",
-  ["Kidney Shot"] = "Golpe en los riñones",
+  --["Kidney Shot"] = "Golpe en los riñones",
   ["Kidney Shot"] = "Golpe de Riñón",--SA
   ["Rend"] = "Desgarrar",
-  ["Shadow Word: Pain"] = "Palabra de las Sombras: dolor",
+  --["Shadow Word: Pain"] = "Palabra de las Sombras: dolor",
   ["Shadow Word: Pain"] = "Palabra de Sombra: Dolor",--SA
-  ["Demoralizing Shout"] = "Grito desmoralizador",
+  --["Demoralizing Shout"] = "Grito desmoralizador",
   ["Demoralizing Shout"] = "Grito Desmoralizador",--SA
   ["Frostbolt"] = "Descarga de Escarcha",
   ["Gouge"] = "Incapacitación",
@@ -157,11 +157,11 @@ tDFUI_locale["esES"]["interrupts"] = {
   ["Arremetida de conmoción"] = true,
   ["Embestida aturdidora"] = true,
   ["Aturdimiento de intercepción"] = true,
-  ["Martillo de justicia"] = true,
+  --["Martillo de justicia"] = true,
   ["Martillo de la Justicia"] = true,--SA
   ["Golpe bajo"] = true,
   ["Incapacitación"] = true,
-  ["Golpe en los riñones"] = true,
+  --["Golpe en los riñones"] = true,
   ["Golpe de Riñón"] = true,--SA
   ["Silencio"] = true,
   ["Contrahechizo"] = true,
@@ -2465,7 +2465,7 @@ tDFUI_locale["esES"]["debuffs"] = {
 }
 
 -- custom entries not detected by DBC extractor
-tDFUI_locale["esES"]["debuffs"]['Cono de frío']={[0]=8.0,} -- Cone of Cold
+--tDFUI_locale["esES"]["debuffs"]['Cono de frío']={[0]=8.0,} -- Cone of Cold
 tDFUI_locale["esES"]["debuffs"]['Cono de Frío']={[0]=8.0,} -- Cone of Cold SA
 
 tDFUI_locale["esES"]["totems"] = {
