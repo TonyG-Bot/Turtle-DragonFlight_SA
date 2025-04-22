@@ -1384,6 +1384,7 @@ tDFUI_locale["esES"]["spells"] = {
   ['Torpeza II']={t=1000,icon='Spell_Shadow_Fumble'},
   ['Torpeza III']={t=1000,icon='Spell_Shadow_Fumble'},
   ['Tortuga de montar']={t=3000,icon='Ability_Hunter_Pet_Turtle'},
+  ['Tortuga Montada']={t=3000,icon='Ability_Hunter_Pet_Turtle'},
   ['Toxina fangosa']={t=2000,icon='Spell_Nature_Regenerate'},
   ['Toxina instantánea']={t=3000,icon='INV_Potion_19'},
   ['Toxina letal']={t=3000,icon='Spell_Nature_CorrosiveBreath'},
