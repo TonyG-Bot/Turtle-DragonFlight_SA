@@ -222,57 +222,80 @@ end
 		FrameTrimToSize(frame)
 	end
 
-	local function BagType(bagID)
+	local function BagType (bagID)
 		if bagID > 0 then
 			local link = GetInventoryItemLink('player', ContainerIDToInventoryID(bagID))
-			if link then
+			if(link) then
 				local _, _, id = string.find(link, "item:(%d+)")
 				local _, _, _, _, itemType, subType = GetItemInfo(id)
 				if itemType == 'Quiver' then
 					return SUCC_bagOptions.colors.ammo
 				else
-					return SUCC_bagOptions.colors.bag[subType] or SUCC_bagOptions.colors.bag.Bag
+					return SUCC_bagOptions.colors.bag[subType], subType == 'Bag'
 				end
 			end
 		end
-		return SUCC_bagOptions.colors.bag.Bag
+		return SUCC_bagOptions.colors.bag.Bag, true
 	end
 
 	local function ItemUpdateBorder(button, option)
-		if option then
-			button:GetNormalTexture():SetVertexColor(unpack(SUCC_bagOptions.colors.highlight))
-		elseif not button:GetParent().colorLocked then
-			local bagID = button:GetParent():GetID()
-			local link = GetContainerItemLink(bagID, button:GetID())
-			-- Primero verificar la rareza del objeto
-			if link then
-				local _, _, id = string.find(link, "item:(%d+)")
-				local n, _, q, _, _, t = GetItemInfo(id)
-				
-				-- Mostrar color de rareza si el objeto tiene calidad > 1
-				if q and q > 1 then
-				button:GetNormalTexture():SetVertexColor(GetItemQualityColor(q))
-				return
-				-- Mostrar color especial para objetos de misión
-				elseif t == 'Quest' then
-				button:GetNormalTexture():SetVertexColor(unpack(SUCC_bagOptions.colors.quest))
-				return
-				-- Mostrar color especial para Marcas de Honor
-				elseif n and string.find(n, 'Mark of Honor') then
-					button:GetNormalTexture():SetVertexColor(unpack(SUCC_bagOptions.colors.BG))
-					return
-				end
-			end
-			-- Si no es un objeto especial se usa el color de la bolsa
-			local v, _ = BagType(bagID)
-			if v then
-				button:GetNormalTexture():SetVertexColor(unpack(v))
-			else
-				-- En caso de error se utiliza el color por defecto
-				button:GetNormalTexture():SetVertexColor(0.5, 0.5, 0.5)
-			end
-		end
-	end
+    -- Obtén la textura normal del botón
+    local texture = button:GetNormalTexture()
+
+    -- Verifica si la textura existe; si no, imprime un mensaje de error y sal de la función
+    if not texture then
+        print("Error: El botón no tiene textura")
+        return
+    end
+
+    -- Si la opción está activada, usa un color de resaltado predeterminado
+    if option then
+        texture:SetVertexColor(unpack(SUCC_bagOptions.colors.highlight))
+    elseif not button:GetParent().colorLocked then
+        -- Obtén el ID de la bolsa al que pertenece el botón
+        local bagID = button:GetParent():GetID()
+
+        -- Determina el color y tipo de bolsa usando la función BagType
+        local v, c = BagType(bagID)
+
+        -- Si el color (`v`) es nil, establece un color predeterminado
+        if not v then
+            v = SUCC_bagOptions.colors.bag['Bag'] or {1, 1, 1} -- Blanco por defecto
+        end
+
+        -- Verifica si es necesario sobrescribir colores o si hay condiciones adicionales
+        if c or SUCC_bagOptions.colors.override then
+            -- Obtén el enlace del ítem dentro de la bolsa
+            local link = GetContainerItemLink(bagID, button:GetID())
+            
+            -- Si hay un enlace válido, extrae información del ítem
+            if link then
+                local _, _, id = string.find(link, "item:(%d+)") -- Obtén el ID del ítem
+                local n, _, q, _, _, t = GetItemInfo(id) -- Obtén información del ítem
+                
+                -- Si no se obtiene el nombre (`n`), imprime una advertencia y sal de la función
+                if not n then
+                    print("Advertencia: GetItemInfo no devolvió datos para el item con ID:", id)
+                -- Verifica si el nombre del ítem contiene "Mark of Honor"
+                elseif string.find(n, 'Mark of Honor') then
+                    texture:SetVertexColor(unpack(SUCC_bagOptions.colors.BG)) -- Aplica el color especial
+                    return
+                -- Verifica si el ítem es de tipo "Quest"
+                elseif t == 'Quest' then
+                    texture:SetVertexColor(unpack(SUCC_bagOptions.colors.quest)) -- Aplica el color de misiones
+                    return
+                -- Si el ítem tiene una calidad mayor a 1, aplica el color basado en la calidad
+                elseif q and q > 1 then
+                    texture:SetVertexColor(GetItemQualityColor(q)) -- Color según calidad del ítem
+                    return
+                end
+            end
+        end
+
+        -- Si no se cumplen condiciones específicas, aplica el color determinado por `BagType`
+        texture:SetVertexColor(unpack(v))
+    end
+end
 
 	local function HighlightBagSlots(bagID, option)
 		local frame = getglobal('SUCC_bagDummyBag' .. bagID)
