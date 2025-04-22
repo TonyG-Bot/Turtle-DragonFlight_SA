@@ -38,7 +38,7 @@ tDFUI_locale["esES"]["customcast"] = {
   ["STEADYSHOT"] = "Disparo Estable",--SA
   ["AIMEDSHOT"] = "Disparo de puntería",
   ["MULTISHOT"] = "Multidisparo",
-  ["STEADYSHOT"] = "Disparo Firme",
+  ["STEADYSHOT"] = "Disparo firme",
 }
 
 tDFUI_locale["esES"]["critters"] = {
@@ -158,6 +158,7 @@ tDFUI_locale["esES"]["interrupts"] = {
   ["Embestida aturdidora"] = true,
   ["Aturdimiento de intercepción"] = true,
   ["Martillo de justicia"] = true,
+  ["Martillo de la Justicia"] = true,--SA
   ["Golpe bajo"] = true,
   ["Incapacitación"] = true,
   ["Golpe en los riñones"] = true,
