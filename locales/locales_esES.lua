@@ -36,8 +36,9 @@ tDFUI_locale["esES"]["customcast"] = {
   ["AIMEDSHOT"] = "Disparo Apuntado",--SA
   ["MULTISHOT"] = "Disparo Múltiple",--SA
   ["STEADYSHOT"] = "Disparo Estable",--SA
-  --["AIMEDSHOT"] = "Disparo de puntería",
-  --["MULTISHOT"] = "Multidisparo",
+  ["AIMEDSHOT"] = "Disparo de puntería",
+  ["MULTISHOT"] = "Multidisparo",
+  ["STEADYSHOT"] = "Disparo Firme",
 }
 
 tDFUI_locale["esES"]["critters"] = {
@@ -118,6 +119,7 @@ tDFUI_locale["esES"]["critters"] = {
   'Curiana corrupta',
   'Rata corrupta',
   'Sapo',
+  'Serpiente',
   'Fallo en transportador',
   'Tortuga polimórfica',
   'Bajapata',
@@ -129,9 +131,12 @@ tDFUI_locale["esES"]["critters"] = {
 tDFUI_locale["esES"]["dyndebuffs"] = {
   ["Rupture"] = "Ruptura",
   ["Kidney Shot"] = "Golpe en los riñones",
+  ["Kidney Shot"] = "Golpe de Riñón",--SA
   ["Rend"] = "Desgarrar",
   ["Shadow Word: Pain"] = "Palabra de las Sombras: dolor",
+  ["Shadow Word: Pain"] = "Palabra de Sombra: Dolor",--SA
   ["Demoralizing Shout"] = "Grito desmoralizador",
+  ["Demoralizing Shout"] = "Grito Desmoralizador",--SA
   ["Frostbolt"] = "Descarga de Escarcha",
   ["Gouge"] = "Incapacitación",
 }
@@ -156,6 +161,7 @@ tDFUI_locale["esES"]["interrupts"] = {
   ["Golpe bajo"] = true,
   ["Incapacitación"] = true,
   ["Golpe en los riñones"] = true,
+  ["Golpe de Riñón"] = true,--SA
   ["Silencio"] = true,
   ["Contrahechizo"] = true,
   ["Contrahechizo: silenciado"] = true,
@@ -1465,6 +1471,31 @@ tDFUI_locale["esES"]["spells"] = {
   -- Turtle SA
   ['Disparo Apuntado']={t=3000,icon='INV_Spear_07'},
   ['Disparo Estable']={t=1000,icon='Ability_hunter_steadyshot'},
+  ['Portal a Villa Dorada']={t=5000,icon='Temp'},
+  ['Teletransportar a Villa Dorada']={t=2000,icon='Temp'},
+  ['Teletransportar a Páramos de Poniente']={t=2000,icon='Temp'},
+  ['Teletransportar a Bosque de la Penumbra']={t=2000,icon='Temp'},
+  ['Teletransportar a Elwynn']={t=2000,icon='Temp'},
+  ['Cadenas de Hielo']={t=1300,icon='Spell_Frost_ChainsOfIce'},
+  ['Abrazo de la Viuda']={t=500,icon='Spell_Arcane_Blink'},
+  ['Rayo Encadenado']={t=2500,icon='Spell_Nature_ChainLightning'},
+  ['Lobo Fantasmal']={t=3000,icon='Spell_Nature_SpiritWolf'},
+  ['Ola de Sanación']={t=3000,icon='Spell_Nature_MagicImmunity'},
+  ['Rayo de Relámpago']={t=3000,icon='Spell_Nature_Lightning'},
+  ['Vista Lejana']={t=2000,icon='Spell_Nature_FarSight'},
+  ['Control Mental']={t=3000,icon='Spell_Shadow_ShadowWordDominate'},
+  ['Rayo de Sombra']={t=3000,icon='Spell_Shadow_ShadowBolt'},
+  ['Rayo de Fuego']={t=2000,icon='Spell_Fire_FireBolt'},
+  ['Rayo de Fuego II']={t=3000,icon='Spell_Fire_FireBolt02'},
+  ['Rayo de Fuego III']={t=3000,icon='Spell_Fire_FireBolt02'},
+  ['Rayo de Fuego IV']={t=3000,icon='Spell_Fire_FireBolt02'},
+  ['Primeros Auxilios']={t=3000,icon='Spell_Holy_GreaterHeal'},
+  ['Lluvia de Llamas']={t=3000,icon='Spell_Fire_SelfDestruct'},
+  ['Polimorfia']={t=1500,icon='Spell_Nature_Polymorph'},
+  ['Polimorfia: Cerdo']={t=1500,icon='Spell_Magic_PolymorphPig'},
+  ['Polimorfia: Tortuga']={t=1500,icon='Ability_Hunter_Pet_Turtle'},
+  ['Polimorfia: Vaca']={t=1500,icon='Spell_Nature_Polymorph_Cow'},
+  ['Revivir Mascota']={t=10000,icon='Ability_Hunter_BeastSoothe'},
 }
 
 tDFUI_locale["esES"]["debuffs"] = {
@@ -1636,6 +1667,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Contrahechizo: silenciado']={[0]=4.0,},
   ['Control de batalla']={[0]=6.0,},
   ['Control mental']={[0]=60.0,},
+  ['Control Mental']={[0]=60.0,},--SA
   ['Corrupción']={[1]=12.0,[2]=15.0,[3]=18.0,[4]=18.0,[5]=18.0,[6]=18.0,[7]=18.0,[0]=18.0,},
   ['Corrupción de alma']={[0]=15.0,},
   ['Corrupción de la Tierra']={[0]=10.0,},
@@ -1742,9 +1774,12 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Dominio del alma']={[0]=60.0,},
   ['Dormir']={[1]=20.0,[2]=30.0,[0]=30.0,},
   ['Drenaje de vida']={[0]=12.0,},
+  ['Drenaje de Maná']={[0]=5.0,},--SA
   ['Drenar alma']={[0]=15.0,},
   ['Drenar maná']={[0]=5.0,},
+  ['Drenar Maná']={[0]=5.0,},--SA
   ['Drenar vida']={[0]=5.0,},
+  ['Drenar Vida']={[0]=5.0,},--SA
   ['Efecto aturdidor de mazas']={[0]=3.0,},
   ['Efecto de Trampa explosiva']={[0]=20.0,},
   ['Efecto de Trampa Explosiva']={[0]=20.0,},--SA
@@ -1851,9 +1886,11 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Fuego acogedor']={[0]=60.0,},
   ['Fuego elemental']={[0]=8.0,},
   ['Fuego feérico']={[0]=40.0,},
+  ['Fuego Feérico']={[0]=40.0,},--SA
   ['Fuego feérico (feral)']={[0]=40.0,},
   ['Fuego justo']={[0]=8.0,},
   ['Fuego lunar']={[1]=9.0,[2]=12.0,[3]=12.0,[4]=12.0,[5]=12.0,[6]=12.0,[7]=12.0,[8]=12.0,[9]=12.0,[10]=12.0,[0]=12.0,},
+  ['Fuego Lunar']={[1]=9.0,[2]=12.0,[3]=12.0,[4]=12.0,[5]=12.0,[6]=12.0,[7]=12.0,[8]=12.0,[9]=12.0,[10]=12.0,[0]=12.0,},
   ['Fuerza corrupta']={[0]=4.0,},
   ['Fuerza deteriorada']={[0]=300.0,},
   ['Fundir armadura']={[0]=60.0,},
@@ -1884,6 +1921,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Golpe desequilibrante']={[0]=6.0,},
   ['Golpe doloroso']={[0]=5.0,},
   ['Golpe en los riñones']={[0]=1.0,},
+  ['Golpe de Riñón']={[0]=1.0,},--SA
   ['Golpe fantasma']={[0]=20.0,},
   ['Golpe fantasmal']={[0]=7.0,},
   ['Golpe marchito']={[0]=8.0,},
@@ -2067,6 +2105,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Marca de Cazador']={[0]=120.0,},--SA
   ['Marchitar']={[0]=21.0,},
   ['Martillo de justicia']={[1]=3.0,[2]=4.0,[3]=5.0,[4]=6.0,[0]=6.0,},
+  ['Martillo de la Justicia']={[1]=3.0,[2]=4.0,[3]=5.0,[4]=6.0,[0]=6.0,},--SA
   ['Martillo del Cruzado']={[0]=4.0,},
   ['Martillo del juez']={[0]=10.0,},
   ['Mella hendida']={[0]=30.0,},
@@ -2131,6 +2170,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Pacificar']={[0]=10.0,},
   ['Palabra Sagrada: entereza']={[0]=1800.0,},
   ['Palabra de las Sombras: dolor']={[0]=18.0,},
+  ['Palabra de Sombra: Dolor']={[0]=18.0,},--SA
   ['Paliza popular']={[0]=5.0,},
   ['Paliza salvaje']={[0]=5.0,},
   ['Paralizar']={[0]=30.0,},
@@ -2183,10 +2223,15 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Polimorfia']={[1]=20.0,[2]=30.0,[3]=40.0,[4]=50.0,[0]=50.0,},
   ['Polimorfia superior']={[0]=20.0,},
   ['Polimorfia: cerdo']={[0]=50.0,},
+  ['Polimorfia: Cerdo']={[0]=50.0,},--SA
   ['Polimorfia: gallina']={[0]=10.0,},
+  ['Polimorfia: Gallina']={[0]=10.0,},--SA
   ['Polimorfia: oveja']={[0]=10.0,},
+  ['Polimorfia: Oveja']={[0]=10.0,},--SA
   ['Polimorfia: tortuga']={[0]=50.0,},
+  ['Polimorfia: Tortuga']={[0]=50.0,},--SA
   ['Polimorfia: vaca']={[0]=50.0,},
+  ['Polimorfia: Vaca']={[0]=50.0,},--SA
   ['Polomorfia salvaje']={[0]=20.0,},
   ['Posesión']={[0]=120.0,},
   ['Pozo de Luz']={[0]=180.0,},
@@ -2228,6 +2273,7 @@ tDFUI_locale["esES"]["debuffs"] = {
   ['Rayo mortal gnomo']={[0]=4.0,},
   ['Rayo polimórfico']={[0]=4.0,},
   ['Raíces hierbales']={[0]=15.0,},
+  ['Raíces Enredadoras']={[0]=15.0,},--SA
   ['Reavivación de alma']={[0]=1800.0,},
   ['Rebanasesos']={[0]=30.0,},
   ['Recobrar el llanto del cazadragones']={[0]=7200.0,},
@@ -2418,6 +2464,7 @@ tDFUI_locale["esES"]["debuffs"] = {
 
 -- custom entries not detected by DBC extractor
 tDFUI_locale["esES"]["debuffs"]['Cono de frío']={[0]=8.0,} -- Cone of Cold
+tDFUI_locale["esES"]["debuffs"]['Cono de Frío']={[0]=8.0,} -- Cone of Cold SA
 
 tDFUI_locale["esES"]["totems"] = {
   ["Tótem de limpieza de enfermedades"] = "spell_nature_diseasecleansingtotem",
