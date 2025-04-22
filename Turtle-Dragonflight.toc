@@ -104,7 +104,7 @@ tDefaultMicroMenu.lua
 tBagIcons.lua
 tReducedActionBar.lua
 tUnitframes.lua
-tChatFrame.lua
+#tChatFrame.lua
 tMainActionBar.lua
 tGryphons.lua
 tFont.lua
