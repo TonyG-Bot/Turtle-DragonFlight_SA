@@ -28,6 +28,7 @@ tDFUI_translation["esES"] = {
   ["Cooldown Numbers"] = "Tiempo de reutilización",
   ["Copy website URLs from the chat, transforms CLINKs into real items and handles quest and player links."] = "Copiar URLs de sitios web desde el chat, transformar CLINKs en objetos reales y gestionar enlaces de misiones y jugadores.",
   ["Cursor"] = "Cursor",
+  [" |cffffffffOptions"] = " |cffffffffOpciones",
   ["Darkened UI"] = "IU Oscura",
   ["Debuff Timer"] = "Temporizador de desventaja",
   ["Displays all of your bags as one."] = "Muestra todas tus bolsas como una sola.",
