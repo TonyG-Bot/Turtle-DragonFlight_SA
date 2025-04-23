@@ -14,7 +14,8 @@ do -- Prayer of Healing
   local locales = {
     ["deDE"] = "Gebet der Heilung",
     ["enUS"] = "Prayer of Healing",
-    ["esES"] = "Rezo de curación",
+    --["esES"] = "Rezo de curación",
+	["esES"] = "Oración de Sanación",--SA
     ["frFR"] = "Prière de soins",
     ["koKR"] = "치유의 기원",
     ["ruRU"] = "Молитва исцеления",
@@ -22,6 +23,51 @@ do -- Prayer of Healing
   }
 
   PRAYER_OF_HEALING = locales[GetLocale()] or locales["enUS"]
+end
+
+local REJUVENATION
+do -- Rejuvenation
+  local locales = {
+    ["deDE"] = "Verjüngung",
+    ["enUS"] = "Rejuvenation",
+    ["esES"] = "Rejuvenecimiento",
+    ["frFR"] = "Récupération",
+    ["koKR"] = "회복",
+    ["ruRU"] = "Омоложение",
+    ["zhCN"] = "回春术",
+  }
+
+  REJUVENATION = locales[GetLocale()] or locales["enUS"]
+end
+
+local RENEW
+do -- Renew
+  local locales = {
+    ["deDE"] = "Erneuerung",
+    ["enUS"] = "Renew",
+    ["esES"] = "Renovar",
+    ["frFR"] = "Rénovation",
+    ["koKR"] = "소생",
+    ["ruRU"] = "Обновление",
+    ["zhCN"] = "恢复",
+  }
+
+  RENEW = locales[GetLocale()] or locales["enUS"]
+end
+
+local REGROWTH
+do -- Regrowth
+  local locales = {
+    ["deDE"] = "Nachwachsen",
+    ["enUS"] = "Regrowth",
+    ["esES"] = "Recrecimiento",
+    ["frFR"] = "Rétablissement",
+    ["koKR"] = "재생",
+    ["ruRU"] = "Восстановление",
+    ["zhCN"] = "愈合",
+  }
+
+  REGROWTH = locales[GetLocale()] or locales["enUS"]
 end
 
 local libpredict = CreateFrame("Frame")
