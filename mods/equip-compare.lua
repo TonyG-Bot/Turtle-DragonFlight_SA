@@ -54,7 +54,7 @@ module.enable = function(self)
   
     -- set globals for all inventory types
     for key, value in pairs(L["itemtypes"]) do setglobal(key, value) end
-    INVTYPE_WEAPON_OTHER = INVTYPE_WEAPON.."_other"
+	INVTYPE_WEAPON_OTHER = INVTYPE_WEAPON.."_other"
 	INVTYPE_FINGER_OTHER = INVTYPE_FINGER.."_other"
 	INVTYPE_TRINKET_OTHER = INVTYPE_TRINKET.."_other"
 
