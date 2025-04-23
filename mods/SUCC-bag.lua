@@ -41,9 +41,13 @@ module.enable = function(self)
 		SUCC_bagOptions.colors.backdrop = {0.3, 0.3, 0.3}
 		SUCC_bagOptions.colors.bag = {}
 		SUCC_bagOptions.colors.bag['Bag'] = {0.3, 0.3, 0.3}
+		SUCC_bagOptions.colors.bag['Bolsa'] = {0.3, 0.3, 0.3}
 		SUCC_bagOptions.colors.bag['Soul Bag'] = {0.678, 0.549, 1}
+		SUCC_bagOptions.colors.bag['Bolsa de Almas'] = {0.678, 0.549, 1}
 		SUCC_bagOptions.colors.bag['Herb Bag'] = {0.3, 0.8, 0.3}
+		SUCC_bagOptions.colors.bag['Bolsa de Hierbas'] = {0.3, 0.8, 0.3}
 		SUCC_bagOptions.colors.bag['Enchanting Bag'] = {0.5, 0.4, 0.8}
+		SUCC_bagOptions.colors.bag['Bolsa de Encantamiento'] = {0.5, 0.4, 0.8}
 		SUCC_bagOptions.colors.override = false
 		SUCC_bagOptions.layout = {}
 		SUCC_bagOptions.layout.spacing = 6
@@ -228,10 +232,10 @@ end
 			if(link) then
 				local _, _, id = string.find(link, "item:(%d+)")
 				local _, _, _, _, itemType, subType = GetItemInfo(id)
-				if itemType == 'Quiver' then
+				if itemType == 'Quiver' or itemType =='Carcaj' then
 					return SUCC_bagOptions.colors.ammo
 				else
-					return SUCC_bagOptions.colors.bag[subType], subType == 'Bag'
+					return SUCC_bagOptions.colors.bag[subType], subType == 'Bag' or subType =='Bolsa'
 				end
 			end
 		end
@@ -249,10 +253,10 @@ end
 				if link then
 					local _, _, id = string.find(link, "item:(%d+)")
 					local n, _, q, _, _, t = GetItemInfo(id)
-					if n ~= nil and string.find(n, 'Mark of Honor') then
+					if n ~= nil and (string.find(n, 'Mark of Honor') or string.find(n, 'Marca de Honor')) then
 						button:GetNormalTexture():SetVertexColor(unpack(SUCC_bagOptions.colors.BG))
 						return
-					elseif t == 'Quest' then
+					elseif t == 'Quest'or t =='Misión' then
 						button:GetNormalTexture():SetVertexColor(unpack(SUCC_bagOptions.colors.quest))
 						return
 					elseif q ~= nil and q > 1 then
