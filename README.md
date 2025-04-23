@@ -4,7 +4,7 @@
 ## 🐉 ¿Que cambia?
 - Ajusta la transparencia de los tooltips en modo "Darnkened UI" para una mejor visualización del texto.
 - Agrega una barra de casteo custom para "Steady Shot" para la versión en Español e Inglés.
-- Corrige el color de de los bordes de los items en la bolsa, según la rareza.
+- Corrige el color de los bordes de los items en la bolsa, según la rareza.
 - Corrige el error asociado al activar la opción "All-in-one-bag" del addon original, permitiendo ver todas las bolsas en una sola.
 - Corrige el "Auto Dismount" para Tortuga Montada "Lento y constante...".
 - Corrige el casteo de "Aimed Shot" y "Multi-Shot" para la versión en Español.
