@@ -418,7 +418,7 @@ hooksecurefunc("UseAction", function(slot, target, selfcast)
   spell_queue[3] = selfcast and UnitName("player") or UnitName("target") and UnitCanAssist("player", "target") and UnitName("target") or UnitName("player")
 end, true)
 
-libpredict.sender = CreateFrame("Frame", "pfPredictionSender", UIParent)
+libpredict.sender = CreateFrame("Frame", "tDFUIPredictionSender", UIParent)
 libpredict.sender.enabled = true
 libpredict.sender.SendHealCommMsg = function(self, msg)
   SendAddonMessage("HealComm", msg, "RAID")
