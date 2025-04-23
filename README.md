@@ -2,6 +2,7 @@
 🎮 Una versión modificada del addon [Turtle-Dragonflight](https://github.com/TheLinuxITGuy/Turtle-Dragonflight) para el servidor de **Turtle WoW SA**.
 
 ## 🐉 ¿Que cambia?
+- Ajusta la transparencia de los tooltips en modo "Darnkened UI" para una mejor visualización del texto.
 - Corrige el error asociado al activar la opción "All-in-one-bag" del addon original, permitiendo ver todas las bolsas en una sola.
 - Corrige el "Auto Dismount" para Tortuga Montada "Lento y constante...".
 - Corrige el casteo de "Aimed Shot" y "Multi-Shot" para la versión en Español.
