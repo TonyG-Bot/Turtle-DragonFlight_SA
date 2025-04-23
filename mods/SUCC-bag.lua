@@ -256,7 +256,7 @@ end
 					if n ~= nil and (string.find(n, 'Mark of Honor') or string.find(n, 'Marca de Honor')) then
 						button:GetNormalTexture():SetVertexColor(unpack(SUCC_bagOptions.colors.BG))
 						return
-					elseif t == 'Quest'or t =='Misión' then
+					elseif t == 'Quest' or t =='Misión' then
 						button:GetNormalTexture():SetVertexColor(unpack(SUCC_bagOptions.colors.quest))
 						return
 					elseif q ~= nil and q > 1 then
@@ -992,7 +992,7 @@ end)
 	local function SetColumns()
 		local l, n = this:GetValue(), string.sub(this:GetName(), 5, -8)
 		SUCC_bagOptions.layout.columns[n] = l
-		if n == 'bag' then FrameLayout(SUCC_bag, l) else FrameLayout(SUCC_bag.bank, l) end
+		if n == 'bag' or n == 'bolsa' then FrameLayout(SUCC_bag, l) else FrameLayout(SUCC_bag.bank, l) end
 	end
 
 	local function SetColor()
