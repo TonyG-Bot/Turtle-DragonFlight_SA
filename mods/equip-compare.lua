@@ -11,52 +11,11 @@ local module = tDFUI:register({
 })
 
 module.enable = function(self)
-	local sides = { "Left", "Right" }
-
-  local function AddHeader(tooltip)
-    local name = tooltip:GetName()
-
-    -- shift all entries one line down
-    for i=tooltip:NumLines(), 1, -1 do
-      for _, side in pairs(sides) do
-        local current = _G[name.."Text"..side..i]
-        local below = _G[name.."Text"..side..i+1]
-
-        if current and current:IsShown() then
-          local text = current:GetText()
-          local r, g, b = current:GetTextColor()
-
-          if text and text ~= "" then
-            if tooltip:NumLines() < i+1 then
-              -- add new line if required
-              tooltip:AddLine(text, r, g, b, true)
-            else
-              -- update existing lines
-              below:SetText(text)
-              below:SetTextColor(r, g, b)
-              below:Show()
-
-              -- hide processed line
-              current:Hide()
-            end
-          end
-        end
-      end
-    end
-	-- add label to first line
-    _G[name.."TextLeft1"]:SetTextColor(.5, .5, .5, 1)
-    _G[name.."TextLeft1"]:SetText(CURRENTLY_EQUIPPED)
-    _G[name.."TextLeft1"]:Show()
-
-    -- update tooltip sizes
-    tooltip:Show()
-  end
-  
     -- set globals for all inventory types
     for key, value in pairs(L["itemtypes"]) do setglobal(key, value) end
-	INVTYPE_WEAPON_OTHER = INVTYPE_WEAPON.."_other"
-	INVTYPE_FINGER_OTHER = INVTYPE_FINGER.."_other"
-	INVTYPE_TRINKET_OTHER = INVTYPE_TRINKET.."_other"
+    INVTYPE_WEAPON_OTHER = INVTYPE_WEAPON.."_other";
+    INVTYPE_FINGER_OTHER = INVTYPE_FINGER.."_other";
+    INVTYPE_TRINKET_OTHER = INVTYPE_TRINKET.."_other";
 
     local slots = {
         [INVTYPE_2HWEAPON] = "MainHandSlot",
@@ -91,76 +50,157 @@ module.enable = function(self)
         [INVTYPE_CROSSBOW] = "RangedSlot",
         [INVTYPE_THROWN] = "RangedSlot",
     }
-	
-	ShoppingTooltip1:SetClampedToScreen(true)
-	ShoppingTooltip2:SetClampedToScreen(true)
-	
-	local function ShowCompare(tooltip)
-    -- abort if shift is not pressed
-    if not IsShiftKeyDown() then
-      ShoppingTooltip1:Hide()
-      ShoppingTooltip2:Hide()
-      return
+
+    local function startsWith(str, start)
+        return string.sub(str, 1, string.len(start)) == start
     end
-	
-	for i=1,tooltip:NumLines() do
-      local tmpText = _G[tooltip:GetName() .. "TextLeft"..i]
-	  
-	  for slotType, slotName in pairs(slots) do
-        if tmpText:GetText() == slotType then
-          local slotID = GetInventorySlotInfo(slotName)
-		  
-		  -- determine screen part
-          local x = GetCursorPosition() / UIParent:GetEffectiveScale()
-          local anchor = x < GetScreenWidth() / 2 and "TOPLEFT" or "TOPRIGHT"
-          local relative = x < GetScreenWidth() / 2 and "TOPRIGHT" or "TOPLEFT"
 
-          -- overwrite position for tooltips without owner
-          local pos, parent = tooltip:GetPoint()
-          if parent and parent == UIParent and pos == "TOPRIGHT" then
-            anchor = "TOPRIGHT"
-            relative = "TOPLEFT"
-          end
-		  
-		  -- first tooltip
-          ShoppingTooltip1:SetOwner(tooltip, "ANCHOR_NONE")
-          ShoppingTooltip1:ClearAllPoints()
-          ShoppingTooltip1:SetPoint(anchor, tooltip, relative, 0, 0)
-          ShoppingTooltip1:SetInventoryItem("player", slotID)
-          ShoppingTooltip1:Show()
-          AddHeader(ShoppingTooltip1)
 
-          -- second tooltip
-          if slots[slotType .. "_other"] then
-            local slotID_other = GetInventorySlotInfo(slots[slotType .. "_other"])
-            ShoppingTooltip2:SetOwner(tooltip, "ANCHOR_NONE")
-            ShoppingTooltip2:ClearAllPoints()
-            if ShoppingTooltip1:IsShown() then
-                ShoppingTooltip2:SetPoint(anchor, ShoppingTooltip1, relative, 0, 0)
-            else
-                ShoppingTooltip2:SetPoint(anchor, tooltip, relative, 0, 0)
+    local function ExtractAttributes(tooltip)
+        local name = tooltip:GetName()
+
+        -- get the name/header of the last set comparison tooltip
+        local comparetooltip = tDF.eqcompare.tooltip:GetName()
+        local iname = _G[comparetooltip .. "TextLeft1"] and _G[comparetooltip .. "TextLeft1"]:GetText()
+
+        -- only run once per item
+        if tooltip.pfCompLastName == iname then return end
+
+        tooltip.pfCompData = {}
+        tooltip.pfCompLastName = iname
+
+        for i=1,30 do
+            local widget = _G[name.."TextLeft"..i]
+            if widget and widget:GetObjectType() == "FontString" then
+                local text = widget:GetText()
+                if text and not string.find(text, "-", 1, true) then
+                    local start = 1
+                    if startsWith(text, "\+") or startsWith(text, "\(") then start = 2 end
+
+                    local space = string.find(text, " ", 1, true)
+                    if space then
+                        local value = tonumber(string.sub(text, start, space-1))
+                        if value and text then
+                            -- we've found an attr
+                            local attr = string.sub(text, space, string.len(text))
+                            tooltip.pfCompData[attr] = { value = tonumber(value), widget = widget }
+                        end
+                    end
+                end
             end
-            ShoppingTooltip2:SetInventoryItem("player", slotID_other)
-            ShoppingTooltip2:Show()
-            AddHeader(ShoppingTooltip2)
-          end
         end
-      end
     end
-  end
-  
-  -- show item compare on default tooltips
-  local default = CreateFrame("Frame", nil, GameTooltip)
-  default:SetScript("OnUpdate", function()
-    ShowCompare(GameTooltip)
-  end)
-  
-  -- show compare on atlas tooltips
-  tDFUI.HookAddonOrVariable("AtlasLoot", function()
-    local atlas = CreateFrame("Frame", nil, AtlasLootTooltip)
-    atlas:SetScript("OnUpdate", function()
-      ShowCompare(AtlasLootTooltip)
-      ShowCompare(AtlasLootTooltip2)
-    end)
-  end)
+
+
+    local function CompareAttributes(data, targetData)
+        if not data then return end
+      
+        for attr,v in pairs(data) do
+            if targetData then
+                local target = targetData[attr]
+                if target then
+                    if v.value ~= target.value and v.widget:GetText() then
+                        if v.value > target.value then
+                            if not strfind(v.widget:GetText(), "|cff88ff88") and not strfind(v.widget:GetText(), "|cffff8888") then
+                                v.widget:SetText(v.widget:GetText() .. "|cff88ff88 (+" .. tDFUI.round(v.value - target.value, 1) .. ")")
+                            end
+                        elseif not v.widget.compSet then
+                            if not strfind(v.widget:GetText(), "|cff88ff88") and not strfind(v.widget:GetText(), "|cffff8888") then
+                                v.widget:SetText(v.widget:GetText() .. "|cffff8888 (-" .. tDFUI.round(target.value - v.value, 1) .. ")")
+                            end
+                        end
+                        target.processed = true
+                    else
+                        target.processed = true
+                    end
+                else
+                    -- this attribute doesnt exist in target
+                    if v.widget and v.widget:GetText() then
+                        if not strfind(v.widget:GetText(), "|cff88ff88") and not strfind(v.widget:GetText(), "|cffff8888") then
+                            v.widget:SetText(v.widget:GetText() .. "|cff88ff88 (+" .. v.value .. ")")
+                        end
+                    end
+                end
+            end
+        end
+      
+        for _,target in pairs(targetData) do
+            if target and not target.processed then
+                -- we are an extra value
+                local text = target.widget:GetText()
+                if text and not strfind(text, "|cff88ff88") and not strfind(text, "|cffff8888") then
+                    target.widget:SetText(text .. "|cff88ff88 (+" .. target.value .. ")")
+                end
+            end
+        end
+    end
+
+
+    tDF.eqcompare = {}
+    tDF.eqcompare.GameTooltipShow = function()
+        tDF.eqcompare.tooltip = this
+        if not IsShiftKeyDown() then return end
+
+        for i=1,this:NumLines() do
+            local tmpText = _G[this:GetName() .. "TextLeft"..i]
+
+            for slotType, slotName in pairs(slots) do
+                if tmpText:GetText() == slotType then
+                    local slotID = GetInventorySlotInfo(slotName)
+
+                    -- determine screen part
+                    local x = GetCursorPosition() / UIParent:GetEffectiveScale()
+                    local anchor = x < GetScreenWidth() / 2 and "BOTTOMLEFT" or "BOTTOMRIGHT"
+                    local relative = x < GetScreenWidth() / 2 and "BOTTOMRIGHT" or "BOTTOMLEFT"
+
+                    -- overwrite position for tooltips without owner
+                    local pos, parent = this:GetPoint()
+                    if parent and parent == UIParent and pos == "BOTTOMRIGHT" then
+                        anchor = "BOTTOMRIGHT"
+                        relative = "BOTTOMLEFT"
+                    end
+
+                    -- first tooltip
+                    ShoppingTooltip1:SetOwner(this, "ANCHOR_NONE");
+                    ShoppingTooltip1:ClearAllPoints();
+                    ShoppingTooltip1:SetPoint(anchor, this, relative, 0, 0);
+                    ShoppingTooltip1:SetInventoryItem("player", slotID)
+                    ShoppingTooltip1:Show()
+
+                    -- second tooltip
+                    if slots[slotType .. "_other"] then
+                        local slotID_other = GetInventorySlotInfo(slots[slotType .. "_other"])
+                        ShoppingTooltip2:SetOwner(this, "ANCHOR_NONE");
+                        ShoppingTooltip2:ClearAllPoints();
+                        ShoppingTooltip2:SetPoint(anchor, ShoppingTooltip1, relative, 0, 0);
+                        ShoppingTooltip2:SetInventoryItem("player", slotID_other)
+                        ShoppingTooltip2:Show();
+                    end
+                end
+            end
+        end
+    end
+
+    GameTooltip.HookScript = GameTooltip.HookScript or tDFUI.HookScript
+    ShoppingTooltip1.HookScript = ShoppingTooltip1.HookScript or tDFUI.HookScript
+    ShoppingTooltip2.HookScript = ShoppingTooltip2.HookScript or tDFUI.HookScript
+
+    tDF.eqcompare.ShoppingTooltipShow = function()
+        if not tDF.eqcompare.tooltip then return end
+        ExtractAttributes(this)
+        ExtractAttributes(tDF.eqcompare.tooltip)
+        CompareAttributes(tDF.eqcompare.tooltip.pfCompData, this.pfCompData)
+    end
+
+    GameTooltip:HookScript("OnShow", tDF.eqcompare.GameTooltipShow)
+    ShoppingTooltip1:HookScript("OnShow", tDF.eqcompare.ShoppingTooltipShow)
+    ShoppingTooltip2:HookScript("OnShow", tDF.eqcompare.ShoppingTooltipShow)
+
+    if AtlasLootTooltip then
+        AtlasLootTooltip.HookScript = AtlasLootTooltip.HookScript or tDFUI.HookScript
+        AtlasLootTooltip2.HookScript = AtlasLootTooltip2.HookScript or tDFUI.HookScript
+        AtlasLootTooltip:HookScript("OnShow", tDF.eqcompare.GameTooltipShow)
+        AtlasLootTooltip2:HookScript("OnShow", tDF.eqcompare.GameTooltipShow)
+    end
+
 end
