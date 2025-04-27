@@ -34,13 +34,13 @@ module.enable = function(self)
         local locale = GetLocale() or "enUS" -- Obtener el idioma del cliente de WoW
         local localizedBagNames = {}
 
-        if locale == "esES" then
-            -- Nombres localizados para español
-            localizedBagNames = {
-                ["Bag"] = "Bolsa",
-                ["Soul Bag"] = "Bolsa de Almas",
-                ["Herb Bag"] = "Bolsa de Hierbas",
-                ["Enchanting Bag"] = "Bolsa de Encantamiento",
+		if locale == "esES" then
+			-- Nombres localizados para español
+			localizedBagNames = {
+				["Bag"] = "Bolsa",
+				["Soul Bag"] = "Bolsa de Almas",
+				["Herb Bag"] = "Bolsa de Hierbas",
+				["Enchanting Bag"] = "Bolsa de Encantamiento",
 				["Quest"] = "Misión",
 				["Quiver"] = "Carcaj",
 				["Mark of Honor"] = "Marca de Honor",
@@ -53,14 +53,24 @@ module.enable = function(self)
 				["Item spacing"] = "Espaciado de Ítems",
 				["Bag Options"] = "Opciones de Bolsa",
 				["Quality color above bag color"] = "Color de calidad sobre color de bolsa:",
-            }
-        else
-            -- Inglés como idioma predeterminado
-            localizedBagNames = {
-                ["Bag"] = "Bag",
-                ["Soul Bag"] = "Soul Bag",
-                ["Herb Bag"] = "Herb Bag",
-                ["Enchanting Bag"] = "Enchanting Bag",
+				["Bag Title"] = "Bolsas de {player}",
+				["Bank Title"] = "Banco de {player}",
+				["Open Bags"] = "Abrir bolsas",
+				["Open keyring"] = "Abrir llavero",
+				["Sort Bags"] = "Ordenar Bolsas",
+				["Bag sorting tooltip"] = "Este botón organiza tus bolsas para mantener todos tus objetos bien ordenados.",
+				["Sort Bank"] = "Ordenar Banco",
+				["Bank sorting tooltip"] = "Este botón organiza tus espacios de banco para mantener todos tus objetos bien ordenados.",
+				["Left Click Sort"] = "Clic Izquierdo: Ordenar",
+				["Right Click Reverse"] = "Clic Derecho: Orden inverso",
+			}
+		else
+			-- Inglés como idioma predeterminado
+			localizedBagNames = {
+				["Bag"] = "Bag",
+				["Soul Bag"] = "Soul Bag",
+				["Herb Bag"] = "Herb Bag",
+				["Enchanting Bag"] = "Enchanting Bag",
 				["Quest"] = "Quest",
 				["Quiver"] = "Quiver",
 				["Mark of Honor"] = "Mark of Honor",
@@ -73,39 +83,49 @@ module.enable = function(self)
 				["Item spacing"] = "Item spacing",
 				["Bag Options"] = "Bag Options",
 				["Quality color above bag color"] = "Quality color above bag color:",
-            }
-        end
+				["Bag Title"] = "{player}'s Bags",
+				["Bank Title"] = "{player}'s Bank",
+				["Open Bags"] = "Open bags",
+				["Open keyring"] = "Open keyring",
+				["Sort Bags"] = "Sort Bags",
+				["Bag sorting tooltip"] = "This button sorts your bags to keep all of your items well organized.",
+				["Sort Bank"] = "Sort Bank",
+				["Bank sorting tooltip"] = "This button sorts your bank slots to keep all of your items well organized.",
+				["Left Click Sort"] = "Left Click: Sort",
+				["Right Click Reverse"] = "Right Click: Reverse order"
+			}
+		end
 
-        return localizedBagNames
-    end
+		return localizedBagNames
+	end
 
-    local localizedBagNames = initializeLocalization() -- Inicializar nombres localizados
+	local localizedBagNames = initializeLocalization() -- Inicializar nombres localizados
 
-    function SUCC_bagDefaults()
-        SUCC_bagOptions = {}
-        SUCC_bagOptions.colors = {}
-        SUCC_bagOptions.colors.highlight = {1, 0.2, 0.2}
-        SUCC_bagOptions.colors.quest = {0.96, 0.64, 0.94}
-        SUCC_bagOptions.colors.ammo = {0.8, 0.8, 0.3}
-        SUCC_bagOptions.colors.BG = {0.98, 0.95, 0}
-        SUCC_bagOptions.colors.border = {1, 1, 1}
-        SUCC_bagOptions.colors.backdrop = {0.3, 0.3, 0.3}
-        SUCC_bagOptions.colors.bag = {}
-        SUCC_bagOptions.colors.bag[localizedBagNames["Bag"]] = {0.3, 0.3, 0.3}
-        SUCC_bagOptions.colors.bag[localizedBagNames["Soul Bag"]] = {0.678, 0.549, 1}
-        SUCC_bagOptions.colors.bag[localizedBagNames["Herb Bag"]] = {0.3, 0.8, 0.3}
-        SUCC_bagOptions.colors.bag[localizedBagNames["Enchanting Bag"]] = {0.5, 0.4, 0.8}
-        SUCC_bagOptions.colors.override = false
-        SUCC_bagOptions.layout = {}
-        SUCC_bagOptions.layout.spacing = 6
-        SUCC_bagOptions.layout.columns = {}
-        SUCC_bagOptions.layout.columns.bag = 8
-        SUCC_bagOptions.layout.columns.bank = 8
+	function SUCC_bagDefaults()
+		SUCC_bagOptions = {}
+		SUCC_bagOptions.colors = {}
+		SUCC_bagOptions.colors.highlight = {1, 0.2, 0.2}
+		SUCC_bagOptions.colors.quest = {0.96, 0.64, 0.94}
+		SUCC_bagOptions.colors.ammo = {0.8, 0.8, 0.3}
+		SUCC_bagOptions.colors.BG = {0.98, 0.95, 0}
+		SUCC_bagOptions.colors.border = {1, 1, 1}
+		SUCC_bagOptions.colors.backdrop = {0.3, 0.3, 0.3}
+		SUCC_bagOptions.colors.bag = {}
+		SUCC_bagOptions.colors.bag[localizedBagNames["Bag"]] = {0.3, 0.3, 0.3}
+		SUCC_bagOptions.colors.bag[localizedBagNames["Soul Bag"]] = {0.678, 0.549, 1}
+		SUCC_bagOptions.colors.bag[localizedBagNames["Herb Bag"]] = {0.3, 0.8, 0.3}
+		SUCC_bagOptions.colors.bag[localizedBagNames["Enchanting Bag"]] = {0.5, 0.4, 0.8}
+		SUCC_bagOptions.colors.override = false
+		SUCC_bagOptions.layout = {}
+		SUCC_bagOptions.layout.spacing = 6
+		SUCC_bagOptions.layout.columns = {}
+		SUCC_bagOptions.layout.columns.bag = 8
+		SUCC_bagOptions.layout.columns.bank = 8
 		SUCC_bagOptions.layout.padding = { leftRight = 10, topBottom = 26 }
-        SUCC_bagOptions.Clean_Up = 1
+		SUCC_bagOptions.Clean_Up = 1
 
-        return SUCC_bagOptions
-    end
+		return SUCC_bagOptions
+	end
 
 	-- debug
 	local function print(mes)
@@ -668,10 +688,10 @@ end)
 		frame.closeButton:SetHighlightTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonnormal')
 		frame.closeButton:SetScript('OnClick', function() SBFrameClose(frame) end)
 		frame.title = frame:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
-		frame.title:SetPoint('TOPLEFT', frame, 11, -6)
+		frame.title:SetPoint('TOP', frame, 0, -6)
 		frame.title.t = string.sub(t, 9, -1)
 		local playerName = UnitName("player")
-		frame.title:SetText(frame.title.t ~= '' and frame.title.t ~= nil and frame.title.t or (locale == "esES" and ("Bolsas de " .. playerName) or (playerName .. "'s Bags")))
+		frame.title:SetText(frame.title.t ~= '' and frame.title.t ~= nil and frame.title.t or (localizedBagNames["Bag Title"]:gsub("{player}", playerName)))
 
 		if frame.slotFrame then
 			SlotFrameSetup(frame)
@@ -707,12 +727,12 @@ end)
 
 			frame.toggleButton:SetScript('OnEnter', function()
 				GameTooltip:SetOwner(this, 'ANCHOR_LEFT')
-				GameTooltip:AddLine(locale == "esES" and "Abrir bolsas" or "Open bags", 1, 1, 1)
+				GameTooltip:AddLine(localizedBagNames["Open Bags"], 1, 1, 1)
 				GameTooltip:Show()
 			end)
 			frame.keyringButton:SetScript('OnEnter', function()
 			GameTooltip:SetOwner(frame.keyringButton, 'ANCHOR_LEFT')
-			GameTooltip:AddLine(locale == "esES" and "Abrir llavero" or "Open keyring", 1, 1, 1)
+			GameTooltip:AddLine(localizedBagNames["Open keyring"], 1, 1, 1)
 			GameTooltip:Show()
 			end)
 			frame.keyringButton:SetScript('OnLeave', function()
@@ -739,8 +759,8 @@ end)
 				end)
 				frame.cuBag:SetScript('OnEnter', function()
 					GameTooltip:SetOwner(this, 'ANCHOR_LEFT')
-					GameTooltip:AddLine(locale == "esES" and "Clic Izquierdo: Ordenar" or "Left Click: Sort", 1, 1, 1)
-					GameTooltip:AddLine(locale == "esES" and "Clic Derecho: Orden inverso" or "Right Click: Reverse order", 0.3, 0.8, 1)
+					GameTooltip:AddLine(localizedBagNames["Left Click Sort"], 1, 1, 1)
+					GameTooltip:AddLine(localizedBagNames["Right Click Reverse"], 0.3, 0.8, 1)
 					GameTooltip:Show()
 				end)
 				frame.cuBag:SetScript('OnLeave', function() GameTooltip:Hide() end)
@@ -826,13 +846,12 @@ end)
 				GameTooltip:Hide()
 				ResetCursor()
 			end)
-			--- Add title to the bank frame, ensuring consistent font style with the bag frame
+	--- Add title to the bank frame, ensuring consistent font style with the bag frame
     frame.bank.title = frame.bank:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
-    frame.bank.title:SetPoint('TOP', frame.bank, 11, -6)  -- Matching positioning with SUCC_bag
+    frame.bank.title:SetPoint('TOP', frame.bank, 0, -6)  -- Matching positioning with SUCC_bag
     frame.bank.title.t = ''  -- Example custom text setup, adjust as needed
     local playerName = UnitName("player")
-    frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (locale == "esES" and ("Banco de " .. playerName) or (playerName .. "'s Bank")))
-	
+	frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (localizedBagNames["Bank Title"]:gsub("{player}", playerName)))
 
 		end
 		StaticPopupDialogs['CONFIRM_BUY_SUCCBANK_SLOT'] = {
@@ -1302,8 +1321,8 @@ local tBagSort = create_button("tBagSort", SUCC_bag, "TOPRIGHT", 18, 18,
     button_tx, button_tx, button_tx, nil, nil, nil, -30, -3,
     function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
-        GameTooltip:SetText("Sort Bags", 1, 1, 1, 1, true)
-        GameTooltip:AddLine("This button sorts your bags to keep all of your items well organized.", nil, nil, nil, true)
+		GameTooltip:SetText(localizedBagNames["Sort Bags"], 1, 1, 1, 1, true)
+		GameTooltip:AddLine(localizedBagNames["Bag sorting tooltip"], nil, nil, nil, true)
         GameTooltip:Show()
     end,
     function()
@@ -1338,7 +1357,7 @@ local function OnBankFrameOpened()
     PrepareBank(SUCC_bag)
     
     -- Create the bank sorting button attached to SUCC_bagBank
-    CreateSortButton("tBankSort", SUCC_bagBank, "Sort Bank", "This button sorts your bank slots to keep all of your items well organized.", SortBankBags)
+    CreateSortButton("tBankSort", SUCC_bagBank, localizedBagNames["Sort Bank"], localizedBagNames["Bank sorting tooltip"], SortBankBags)
 end
 
 -- Register event to handle bank frame opening
