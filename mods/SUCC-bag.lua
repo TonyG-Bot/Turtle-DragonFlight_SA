@@ -53,8 +53,8 @@ module.enable = function(self)
 				["Item spacing"] = "Espaciado de Ítems",
 				["Bag Options"] = "Opciones de Bolsa",
 				["Quality color above bag color"] = "Color de calidad sobre color de bolsa:",
-				["Bag Title"] = "Bolsas de {player}",
-				["Bank Title"] = "Banco de {player}",
+				["Bag Title"] = "'s Bolsas",
+				["Bank Title"] = "'s Banco",
 				["Open Bags"] = "Abrir bolsas",
 				["Open keyring"] = "Abrir llavero",
 				["Sort Bags"] = "Ordenar Bolsas",
@@ -83,8 +83,8 @@ module.enable = function(self)
 				["Item spacing"] = "Item spacing",
 				["Bag Options"] = "Bag Options",
 				["Quality color above bag color"] = "Quality color above bag color:",
-				["Bag Title"] = "{player}'s Bags",
-				["Bank Title"] = "{player}'s Bank",
+				["Bag Title"] = "'s Bags",
+				["Bank Title"] = "'s Bank",
 				["Open Bags"] = "Open bags",
 				["Open keyring"] = "Open keyring",
 				["Sort Bags"] = "Sort Bags",
@@ -691,7 +691,7 @@ end)
 		frame.title:SetPoint('TOP', frame, 0, -6)
 		frame.title.t = string.sub(t, 9, -1)
 		local playerName = UnitName("player")
-		frame.title:SetText(frame.title.t ~= '' and frame.title.t ~= nil and frame.title.t or (localizedBagNames["Bag Title"]:gsub("{player}", playerName)))
+		frame.title:SetText(frame.title.t ~= '' and frame.title.t ~= nil and frame.title.t or (playerName .. localizedBagNames["Bag Title"]))
 
 		if frame.slotFrame then
 			SlotFrameSetup(frame)
@@ -851,7 +851,7 @@ end)
     frame.bank.title:SetPoint('TOP', frame.bank, 0, -6)  -- Matching positioning with SUCC_bag
     frame.bank.title.t = ''  -- Example custom text setup, adjust as needed
     local playerName = UnitName("player")
-	frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (localizedBagNames["Bank Title"]:gsub("{player}", playerName)))
+    frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (playerName .. localizedBagNames["Bank Title"]))
 
 		end
 		StaticPopupDialogs['CONFIRM_BUY_SUCCBANK_SLOT'] = {
