@@ -6,7 +6,8 @@
 - Agrega una barra de casteo custom para "Steady Shot" para la versión en Español e Inglés.
 - Corrige el color de los bordes de los items en la bolsa, según la rareza.
 - Corrige el error asociado al activar la opción "All-in-one-bag" del addon original, permitiendo ver todas las bolsas en una sola.
-- Corrige el "Auto Dismount" para Tortuga Montada "Lento y constante...".
+- Corrige el "Auto Dismount" para Tortuga Montada. "Lento y constante..."
+- Corrige el "Auto Dismount" para Corcel de Guerra del Paladín.
 - Corrige el casteo de "Aimed Shot" y "Multi-Shot" para la versión en Español.
 - Corrige parcialmente el contador de tiempo restante de los Debuffs en el Target.
 - Corrige parcialmente los nombres de las Habilidades/Hechizos para la versión en Español, probablemente algunas barras de casteo ahora si funcionen.
