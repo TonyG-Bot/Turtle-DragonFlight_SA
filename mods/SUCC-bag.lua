@@ -849,7 +849,7 @@ end)
 
 	--- Add title to the bank frame, ensuring consistent font style with the bag frame
 	frame.bank.title = frame.bank:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
-	frame.bank.title:SetPoint('TOP', frame.bank, 0, -6)  -- Matching positioning with SUCC_bag
+	frame.bank.title:SetPoint('TOP', frame.bank, 0, -25)  -- Matching positioning with SUCC_bag
 	frame.bank.title.t = ''  -- Example custom text setup, adjust as needed
 	local playerName = UnitName("player")
 	frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (playerName .. localizedBagNames["Bank Title"]))
@@ -1219,21 +1219,21 @@ end)
 			if SUCC_bag.bank:IsVisible() then FrameUpdate(SUCC_bag.bank) end
 		end
 
-		menu.soul = color('SBC_soulColor', localizedBagNames["Soul Bag"], SUCC_bagOptions.colors.bag[localizedBagNames["Soul Bag"]], menu.highlight, 1)
+		menu.soul = color('SBC_soulColor', 'Soul bag', SUCC_bagOptions.colors.bag[localizedBagNames["Soul Bag"]], menu.highlight, 1)
 		menu.soul.func = function(r, g, b)
 			SUCC_bagOptions.colors.bag[localizedBagNames["Soul Bag"]] = {r, g, b}
 			if SUCC_bag:IsVisible() then FrameUpdate(SUCC_bag) end
 			if SUCC_bag.bank:IsVisible() then FrameUpdate(SUCC_bag.bank) end
 		end
 
-		menu.herb = color('SBC_herbColor', localizedBagNames["Herb Bag"], SUCC_bagOptions.colors.bag[localizedBagNames["Herb Bag"]], menu.soul)
+		menu.herb = color('SBC_herbColor', 'Herb bag', SUCC_bagOptions.colors.bag[localizedBagNames["Herb Bag"]], menu.soul)
 		menu.herb.func = function(r, g, b)
 			SUCC_bagOptions.colors.bag[localizedBagNames["Herb Bag"]] = {r, g, b}
 			if SUCC_bag:IsVisible() then FrameUpdate(SUCC_bag) end
 			if SUCC_bag.bank:IsVisible() then FrameUpdate(SUCC_bag.bank) end
 		end
 
-		menu.enchanting = color('SBC_enchantingColor', localizedBagNames["Enchanting Bag"], SUCC_bagOptions.colors.bag[localizedBagNames["Enchanting Bag"]], menu.soul, 1)
+		menu.enchanting = color('SBC_enchantingColor', 'Enchanting', SUCC_bagOptions.colors.bag[localizedBagNames["Enchanting Bag"]], menu.soul, 1)
 		menu.enchanting.func = function(r, g, b)
 			SUCC_bagOptions.colors.bag[localizedBagNames["Enchanting Bag"]] = {r, g, b}
 			if SUCC_bag:IsVisible() then FrameUpdate(SUCC_bag) end
