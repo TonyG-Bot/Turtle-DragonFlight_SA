@@ -848,10 +848,9 @@ end)
 			end)
 	--- Add title to the bank frame, ensuring consistent font style with the bag frame
     frame.bank.title = frame.bank:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
-    frame.bank.title:SetPoint('TOP', frame.bank, 11, -6)  -- Matching positioning with SUCC_bag
-    frame.bank.title.t = '' -- Example custom text setup, adjust as needed
+    frame.bank.title:SetPoint('TOP', frame.bank, 0, -6)  -- Matching positioning with SUCC_bag
     local playerName = UnitName("player")
-    frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (playerName .. localizedBagNames["Bank Title"]))
+    frame.bank.title:SetText(playerName .. localizedBagNames["Bank Title"])
 
 		end
 		StaticPopupDialogs['CONFIRM_BUY_SUCCBANK_SLOT'] = {
