@@ -846,11 +846,13 @@ end)
 				GameTooltip:Hide()
 				ResetCursor()
 			end)
+
 	--- Add title to the bank frame, ensuring consistent font style with the bag frame
-    frame.bank.title = frame.bank:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
-    frame.bank.title:SetPoint('TOP', frame.bank, 0, -6)  -- Matching positioning with SUCC_bag
-    local playerName = UnitName("player")
-    frame.bank.title:SetText(playerName .. localizedBagNames["Bank Title"])
+	frame.bank.title = frame.bank:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+	frame.bank.title:SetPoint('TOP', frame.bank, 0, -6)  -- Matching positioning with SUCC_bag
+	frame.bank.title.t = ''  -- Example custom text setup, adjust as needed
+	local playerName = UnitName("player")
+	frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (playerName .. localizedBagNames["Bank Title"]))
 
 		end
 		StaticPopupDialogs['CONFIRM_BUY_SUCCBANK_SLOT'] = {
@@ -1059,7 +1061,7 @@ end)
 	local function SetColumns()
 		local l, n = this:GetValue(), string.sub(this:GetName(), 5, -8)
 		SUCC_bagOptions.layout.columns[n] = l
-		if n == 'bag' then FrameLayout(SUCC_bag, l) else FrameLayout(SUCC_bag.bank, l) end
+		if n == localizedBagNames["Bag"] then FrameLayout(SUCC_bag, l) else FrameLayout(SUCC_bag.bank, l) end
 	end
 
 	local function SetColor()
@@ -1188,9 +1190,9 @@ end)
 			SUCC_bag.bank.slotFrame:SetBackdropColor(r, g, b)
 		end
 
-		menu.item = color('SBC_itemColor', 'Item border', SUCC_bagOptions.colors.bag.Bag, menu.border, 1)
+		menu.item = color('SBC_itemColor', 'Item border', SUCC_bagOptions.colors.bag[localizedBagNames["Bag"]], menu.border, 1)
 		menu.item.func = function(r, g, b)
-			SUCC_bagOptions.colors.bag.Bag = {r, g, b}
+			SUCC_bagOptions.colors.bag[localizedBagNames["Bag"]] = {r, g, b}
 			if SUCC_bag:IsVisible() then FrameUpdate(SUCC_bag) end
 			if SUCC_bag.bank:IsVisible() then FrameUpdate(SUCC_bag.bank) end
 			if SUCC_bag.keyring:IsVisible() then FrameUpdate(SUCC_bag.keyring) end
@@ -1217,23 +1219,23 @@ end)
 			if SUCC_bag.bank:IsVisible() then FrameUpdate(SUCC_bag.bank) end
 		end
 
-		menu.soul = color('SBC_soulColor', 'Soul bag', SUCC_bagOptions.colors.bag['Soul Bag'], menu.highlight, 1)
+		menu.soul = color('SBC_soulColor', localizedBagNames["Soul Bag"], SUCC_bagOptions.colors.bag[localizedBagNames["Soul Bag"]], menu.highlight, 1)
 		menu.soul.func = function(r, g, b)
-			SUCC_bagOptions.colors.bag['Soul Bag'] = {r, g, b}
+			SUCC_bagOptions.colors.bag[localizedBagNames["Soul Bag"]] = {r, g, b}
 			if SUCC_bag:IsVisible() then FrameUpdate(SUCC_bag) end
 			if SUCC_bag.bank:IsVisible() then FrameUpdate(SUCC_bag.bank) end
 		end
 
-		menu.herb = color('SBC_herbColor', 'Herb bag', SUCC_bagOptions.colors.bag['Herb Bag'], menu.soul)
+		menu.herb = color('SBC_herbColor', localizedBagNames["Herb Bag"], SUCC_bagOptions.colors.bag[localizedBagNames["Herb Bag"]], menu.soul)
 		menu.herb.func = function(r, g, b)
-			SUCC_bagOptions.colors.bag['Herb Bag'] = {r, g, b}
+			SUCC_bagOptions.colors.bag[localizedBagNames["Herb Bag"]] = {r, g, b}
 			if SUCC_bag:IsVisible() then FrameUpdate(SUCC_bag) end
 			if SUCC_bag.bank:IsVisible() then FrameUpdate(SUCC_bag.bank) end
 		end
 
-		menu.enchanting = color('SBC_enchantingColor', 'Enchanting', SUCC_bagOptions.colors.bag['Enchanting Bag'], menu.soul, 1)
+		menu.enchanting = color('SBC_enchantingColor', localizedBagNames["Enchanting Bag"], SUCC_bagOptions.colors.bag[localizedBagNames["Enchanting Bag"]], menu.soul, 1)
 		menu.enchanting.func = function(r, g, b)
-			SUCC_bagOptions.colors.bag['Enchanting Bag'] = {r, g, b}
+			SUCC_bagOptions.colors.bag[localizedBagNames["Enchanting Bag"]] = {r, g, b}
 			if SUCC_bag:IsVisible() then FrameUpdate(SUCC_bag) end
 			if SUCC_bag.bank:IsVisible() then FrameUpdate(SUCC_bag.bank) end
 		end
