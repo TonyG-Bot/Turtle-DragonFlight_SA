@@ -54,7 +54,7 @@ module.enable = function(self)
 				["Bag Options"] = "Opciones de Bolsa",
 				["Quality color above bag color"] = "Color de calidad sobre color de bolsa:",
 				["Bag Title"] = "'s Bolsas",
-				--["Bank Title"] = "'s Banco",
+				["Bank Title"] = "'s Banco",
 				["Open Bags"] = "Abrir bolsas",
 				["Open keyring"] = "Abrir llavero",
 				["Sort Bags"] = "Ordenar Bolsas",
@@ -84,7 +84,7 @@ module.enable = function(self)
 				["Bag Options"] = "Bag Options",
 				["Quality color above bag color"] = "Quality color above bag color:",
 				["Bag Title"] = "'s Bags",
-				--["Bank Title"] = "'s Bank",
+				["Bank Title"] = "'s Bank",
 				["Open Bags"] = "Open bags",
 				["Open keyring"] = "Open keyring",
 				["Sort Bags"] = "Sort Bags",
@@ -849,10 +849,9 @@ end)
 	--- Add title to the bank frame, ensuring consistent font style with the bag frame
     frame.bank.title = frame.bank:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
     frame.bank.title:SetPoint('TOP', frame.bank, 0, -6)  -- Matching positioning with SUCC_bag
-    frame.bank.title.t = ''  -- Example custom text setup, adjust as needed
+    frame.bank.title.t = string.sub(t, 9, -1)-- Example custom text setup, adjust as needed
     local playerName = UnitName("player")
-    frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (playerName .. "'s Bank"))
-    -- frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (playerName .. localizedBagNames["Bank Title"]))
+    frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (playerName .. localizedBagNames["Bank Title"]))
 
 		end
 		StaticPopupDialogs['CONFIRM_BUY_SUCCBANK_SLOT'] = {
