@@ -1502,6 +1502,8 @@ tDFUI_locale["esES"]["spells"] = {
   ['Polimorfia: Tortuga']={t=1500,icon='Ability_Hunter_Pet_Turtle'},
   ['Polimorfia: Vaca']={t=1500,icon='Spell_Nature_Polymorph_Cow'},
   ['Revivir Mascota']={t=10000,icon='Ability_Hunter_BeastSoothe'},
+  ['Zancudo Halcón Talasiano Rojo']={t=3000,icon='Spell_nature_swiftness'},
+  ['Invocar Corcel de Guerra']={t=3000,icon='Spell_nature_swiftness'},
 }
 
 tDFUI_locale["esES"]["debuffs"] = {
